@@ -1,0 +1,32 @@
+<%- include('header.ejs') %>
+
+    <main>
+        <div class="dynamicContent">
+            <% console.log(''); %>
+            <% if(blog.length === 0 ){ %>
+                <div class="empty">
+                <h1>No blog posts available !</h1>
+                <h2>create new blog posts 👐</h2>
+                </div>
+
+           <%  }  else{ %>
+            <% console.log(''); %> 
+                <% blog.forEach((blogPostObj,index) => { %>
+            
+            <div class="blog" id="<%= blogPostObj.id %>">
+                <h3> <%= blogPostObj.title %></h3>
+                <p> <%= blogPostObj.quote %></p>
+                <p class="time"> <%= blogPostObj.date %></p>
+                <div class="btn">
+                    <input class="button delBtn" type="submit" value="delete" />
+                    <input class="button editBtn"  type="submit" value="edit" />
+                </div>
+            </div>
+            <%   }); %>
+           <%   } %>
+        
+      </div>
+
+
+<%- include('rightDiv.ejs') %>
+<%- include('footer.ejs') %>

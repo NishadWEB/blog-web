@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Being Blog - create</title>
+    <link rel="icon" href="/Images/Blogger.png" type="image/png">
+    <link rel="stylesheet" href="/html_css_js/style.css" />
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="/Images/Blogger.png" alt="logoo" />
+      <nav>
+        <ul class="nav-menu">
+          <a href="/"><li>home </li> </a>
+          
+          <a href="/create"><li>create BLOG </li></a> 
+          <a href="/about"><li>about</li></a> 
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="dynamicContentCreateBlog">
+        <div class="blogPost">
+          <form action="/submit" id="blogForm" method="post">
+            <label for="title" class="label_1">Enter the title</label>
+            <input type="text" placeholder="Enter title..." id="title" name="formTitle" />
+            <label for="quote" class="label_2">Enter the blog</label>
+            <textarea rows="5" placeholder="Enter the quote..."id="quote" name="formQuote" ></textarea>
+            <input type="submit" class="subBtn">            
+          </form>
+        </div>
+
+
+      </div>
+
+      <div class="rightDiv">
+        <img class="flightImg" src="/Images/upward.svg" alt="" />
+        <p class="para">
+          "Every word holds meaning, every story carries a message, and every
+          idea has the power to spark change. Writing is more than just
+          expression—it is a bridge between thoughts and the world, a way to
+          leave a mark, and a journey of endless discovery."
+        </p>
+      </div>
+    </main>
+
+    <footer><p class="foot">&copy; All rights reserved</p></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/html_css_js/script.js"></script>
+  </body>
+</html>
