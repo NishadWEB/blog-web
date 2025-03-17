@@ -46,7 +46,7 @@ $(".editBtn").click(function (event) {
   };
 
   //this is to POST the edited data
-  fetch("http://localhost:3000/edit", {
+  fetch("/edit", {
     method: "post",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(data),
@@ -74,7 +74,7 @@ $(".delBtn").click(function () {
   var data = { id: idOfPost };
 
   //GET reqst to update the blogs[] array in the server side
-  fetch("http://127.0.0.1:3000/delete", {
+  fetch("/delete", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
