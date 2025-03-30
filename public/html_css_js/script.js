@@ -1,4 +1,4 @@
-if(window.innerWidth < 768){
+if(window.innerWidth < 740){
   document.body.innerHTML = '<h1 class="errorMsg">Not available on phones</h1>'
 }
 
@@ -11,10 +11,11 @@ $("#title").keydown((event) => {
 
 //form quote
 $("#quote").keydown((event) => {
-  if (event.key === "Enter" && event.shiftKey) {
-    console.log("shift + enter is pressed");
-  } else if (event.key === "Enter") {
-    event.preventDefault(); // next line prevention
+  // if (event.key === "Enter" && event.shiftKey) {
+    // console.log("shift + enter is pressed");
+  // } else 
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault(); // next line prevention ( defualt action of text area is to move next line when pressed ENTER button)
     emptySpaceChecker(event);
   }
 });
@@ -46,7 +47,7 @@ $(".editBtn").click(function (event) {
   };
 
   //this is to POST the edited data
-  fetch("http://localhost:3000/edit", {
+  fetch("/edit", {
     method: "post",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(data),
@@ -74,7 +75,7 @@ $(".delBtn").click(function () {
   var data = { id: idOfPost };
 
   //GET reqst to update the blogs[] array in the server side
-  fetch("http://127.0.0.1:3000/delete", {
+  fetch("/delete", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

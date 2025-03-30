@@ -2,7 +2,6 @@
 
     <main>
         <div class="dynamicContent">
-            <% console.log(''); %>
             <% if(blog.length === 0 ){ %>
                 <div class="empty">
                 <h1>No blog posts available !</h1>
@@ -10,7 +9,6 @@
                 </div>
 
            <%  }  else{ %>
-            <% console.log(''); %> 
                 <% blog.forEach((blogPostObj,index) => { %>
             
             <div class="blog" id="<%= blogPostObj.id %>">
@@ -26,7 +24,6 @@
            <%   } %>
         
       </div>
-
 
 <%- include('rightDiv.ejs') %>
 <%- include('footer.ejs') %>
