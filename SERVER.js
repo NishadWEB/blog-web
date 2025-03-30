@@ -56,7 +56,6 @@ app.use(express.json()); // and this is to parse JSON to js object ( for eidt fu
 app.use(cors());
 
 app.get("/", (req, res) => {
-  console.log(blogs);
   res.render("home.ejs", {
     blog: blogs,
   });
@@ -86,10 +85,6 @@ app.post("/submit", (req, res) => {
   var date = d.getDate();
   var time = d.toLocaleTimeString();
 
-  console.log();
-  console.log("before SUBMITTING the FORM : " + JSON.stringify(blogs));
-  console.log();
-
   let formData = {
     id: counter++,
     title: Title,
@@ -99,26 +94,19 @@ app.post("/submit", (req, res) => {
 
   blogs.push(formData);
 
-  console.log();
-  console.log("after SUBMITTING the FORM : " + JSON.stringify(blogs));
-  console.log('...');
-
   res.redirect("/create"); //  heyyy yuuu....remember , URL act as a GET request
 });
 
 // DELETE
 app.post("/delete", (req, res) => {
-  console.log('recieved in /delete server ');
   var id = parseInt(req.body.id); // name = id (in number)
   // blogs = blogs.filter((blog) => blog.id !== id); //filters out the false condition
   
   var actualIndex = blogs.findIndex(element => element.id === id);
 
   delete blogs[actualIndex];
-  console.log('deleted blog post is : ' + JSON.stringify(blogs[actualIndex]));``
 
   blogs = blogs.filter(blog => blog !== undefined)
-  console.log('blogs after filterng form the undefined values in the blogs array !' + JSON.stringify (blogs));
 
     res.send({
       blog : blogs
@@ -140,21 +128,12 @@ app.post("/edit", (req, res) => {
   var date = d.getDate();
   var time = d.toLocaleTimeString();
 
-  console.log('...');
-  console.log("before edting : " + JSON.stringify(blogs));
-  console.log('...');
-
   //returns the object with obj.id === ID which is extracted fromt the req body
   var blogToEdit = blogs.find(element => element.id === ID);
-  console.log('blog to edit is : '+ JSON.stringify(blogToEdit));
 
   blogToEdit.title = newTitle;
   blogToEdit.quote = newQuote;
   blogToEdit.date = `${year} ${month} ${date} , ${time}`;
-
-  console.log('...');
-  console.log("After edting : " + JSON.stringify(blogs));
-  console.log('...');
 
   var data = {
     title : blogToEdit.title,
@@ -166,6 +145,5 @@ app.post("/edit", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log();
   console.log(`listening on port ${port}`);
 });
